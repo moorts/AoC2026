@@ -1,5 +1,6 @@
 package main
 
+
 type Summable interface {
     ~int | ~int8 | ~int16 | ~int32 | ~int64 |
         ~uint | ~uint8 | ~uint16 | ~uint32 | ~uint64 | ~uintptr |
@@ -23,7 +24,7 @@ func sum[IN Summable](slice []IN) (result IN) {
 	return
 }
 
-func reduce[IN any, OUT any](slice []IN, initial OUT, f func(OUT, IN) OUT)) OUT {
+func reduce[IN any, OUT any](slice []IN, initial OUT, f func(OUT, IN) OUT) OUT {
 	acc := initial;
 	for _, element := range slice {
 		acc = f(acc, element)
